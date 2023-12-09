@@ -1,3 +1,4 @@
+import DatesCounter from "./Component/DateCounter";
 import { useState } from "react";
 
 const messages = [
@@ -48,6 +49,7 @@ export default function App() {
         </div>
       </div>
     )}
+    <DatesCounter />
     </>
   )
 }
