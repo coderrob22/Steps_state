@@ -8,28 +8,18 @@ const messages = [
 ];
 
 export default function App() {
-  return(
-    <div>
-      <Steps />
-    </div>
-  );
-}
-
-function Steps(){
-
   const [step, setStep]= useState(1);
   const [isOpen, setIsOpen] = useState(true)
 
   function handlePrevious(){
-    if (step > 1 ) setStep((s)=> s - 1);
+    if (step > 1 ) setStep(step - 1);
   }
   function handleNext(){
-    if (step < 3 ){
-      setStep((s)=> s + 1);
-    }
+    if (step < 3 )setStep(step + 1);
   }
+
   return (
-    <div> 
+    <> 
       <button className="close" onClick={()=>setIsOpen(!isOpen)}>
         &times;
       </button>
@@ -47,41 +37,19 @@ function Steps(){
         </p>
 
         <div className="buttons">
-          <Button 
+          <button 
+            style={{background:'#7950f2', color:'#fff'}}
             onClick={handlePrevious}
-            bgColor="#7950f2"
-            textColor="#fff"
-          >
-            <span>👈</span>Previous
-          </Button>
+          >Previous</button>
             
-          <Button
-            textColor="#fff"
-            bgColor="#7950f2" 
+          <button 
+            style={{background:'#7950f2', color:'#fff'}}
             onClick={handleNext}
-          >
-            <span>👉🏾</span>Next
-          </Button>
-
+          >Next</button>
         </div>
       </div>
     )}
-    </div>
-  )}
-    
-
-
-    function Button({textColor, bgColor, onClick, children}){
-      return (
-        <button 
-          style={{background: bgColor, color: textColor}}
-          onClick= {onClick}
-        >
-          {children}
-        </button>
-      );
-      
-    }
-
-  
-  
+    <DatesCounter />
+    </>
+  )
+}
